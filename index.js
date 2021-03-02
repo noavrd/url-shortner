@@ -18,4 +18,9 @@ class DatBase {
 function dateSql() {
   let date = new Date();
   date = date.toISOString().split('T')[0] + " " + date.toTimeString().split(" ")[0];
+  return date;
+}
+
+function shorturlId() {
+  return Math.floor(Math.random() * 10000);
 }
