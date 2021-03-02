@@ -1,5 +1,5 @@
 const fs = require("fs");
-class DatBase {
+class Url {
     constructor (originalUrl, shortUrl) {
       this.originalUrl = originalUrl;
       this.date = dateSql();
@@ -16,8 +16,18 @@ class DatBase {
     return date;
   }
 
+class dataBase {
+  constructor() {
+    this.urls = [];
+  }
+  addUrl () {
+    this.url.push(new Url(url))
+  }
+} 
 
 
+module.exports = dataBase;
+module.exports = Url;
 
 
   module.exports = DatBase;
