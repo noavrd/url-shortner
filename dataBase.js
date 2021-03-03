@@ -1,4 +1,3 @@
-const fs = require("fs");
 class Url {
     constructor (originalUrl, shortUrl) {
       this.originalUrl = originalUrl;
@@ -28,10 +27,20 @@ class DataBase {
       }
     }
   }
+  checkIfUrlExists(currentUrl) {
+    for (let i = 0; i < this.urls.length; i++) {
+        if ( this.urls[i].originalUrl === currentUrl ) {
+          this.urls[i].count += 1;
+          return this.urls[i].shortUrl;
+        }
+    }
+    return false;
+  }
 } 
 
 
 module.exports = DataBase;
 module.exports = Url;
+
 
 

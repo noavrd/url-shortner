@@ -1,29 +1,13 @@
 const express = require("express");
 const shortid = require("shortid");
-const router = require("router");
 const validUrl = require("valid-url");
-const config = require("config");
-const shortUrlRoute = express.Router();
 const url = require("../dataBase");
+const router = express.Router();
+const dataBase = url.DataBase;
 
-const dataBase = url.DataBase();
-
-function checkIfUrlExists(dataBase, currentUrl) {
-    for(let i = 0; i < dataBase.length; i++) {
-        if( dataBase[i].originalUrl === currentUrl ) {
-            dataBase[i].count += 1;
-            return dataBase[i].shortUrl;
-        }
-    }
-    return false;
-}
-shortUrlRoute.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
     const longUrl = req.body.longUrl;
-    const baseUrl = config.get("api/shorturl/new");
-
-    if ( !validUrl.isUri(baseUrl) ) {
-        return res.status(401).json("Internal error. Please come back later.");
-    }
+    const baseUrl = "api/shorturl/new";
 
     //make an original url id
     const urlCode = shortid.generate();
@@ -53,4 +37,4 @@ shortUrlRoute.post("/", async (req, res) => {
     }    
 });
 
-module.exports = shortUrlRoute;
+module.exports = { router };
