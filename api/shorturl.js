@@ -9,7 +9,7 @@ router.use(express.urlencoded());
 const dataBase = url.DataBase;
 const DB = new dataBase();
 
-router.get("/new", (request, response) => {
+router.get("/:id", (request, response) => {
   try {
     const { id } = request.params;
     if (validUrl.isUri(id)) {

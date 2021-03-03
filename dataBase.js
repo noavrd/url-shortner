@@ -1,46 +1,45 @@
+const fs = require("fs");
+
 class Url {
-    constructor (originalUrl, shortUrl) {
-      this.originalUrl = originalUrl;
-      this.date = dateSql();
-      this.count = 0;
-      this.shortUrl = shortUrl;
-    }
+  constructor(originalUrl, shortUrl) {
+    this.originalUrl = originalUrl;
+    this.shortUrl = shortUrl;
+    this.count = 0;
+    this.date = new Date().toISOString().slice(0, 19).replace("T", " ");
   }
-  
-  function dateSql() {
-    let date = new Date();
-    date = date.toISOString().split('T')[0] + " " + date.toTimeString().split(" ")[0];
-    return date;
-  }
+}
 
 class DataBase {
   constructor() {
     this.urls = [];
   }
-  addUrl (originalUrl, shortUrl) {
-    this.urls.push( new Url(originalUrl, shortUrl) );
-  }
-  deleteUrl (originalUrl) {
+  addUrl(currentUrl) {
     for (let i = 0; i < this.urls.length; i++) {
-      if(this.urls[i].originalUrl === originalUrl) {
+      if (this.urls[i].originalUrl === currentUrl) {
+        this.urls[i].count += 1;
+        return this.urls[i].shortUrl;
+      }
+    }
+    let newUrl = this.urls.push(new Url(currentUrl, shortUrl));
+    return newUrl.shortUrl;
+  }
+  deleteUrl(originalUrl) {
+    for (let i = 0; i < this.urls.length; i++) {
+      if (this.urls[i].originalUrl === originalUrl) {
         this.urls.splice(i, 1);
       }
     }
   }
-  checkIfUrlExists(currentUrl) {
-    for (let i = 0; i < this.urls.length; i++) {
-        if ( this.urls[i].originalUrl === currentUrl ) {
-          this.urls[i].count += 1;
-          return this.urls[i].shortUrl;
-        }
-    }
-    return false;
-  }
-} 
+  // checkIfUrlExists(currentUrl) {
+  //   for (let i = 0; i < this.urls.length; i++) {
+  //     if (this.urls[i].originalUrl === currentUrl) {
+  //       this.urls[i].count += 1;
+  //       return this.urls[i].shortUrl;
+  //     }
+  //   }
+  //   return false;
+  // }
+}
 
-
-module.exports = DataBase;
-module.exports = Url;
-
-
+module.exports = { DataBase, Url };
 
