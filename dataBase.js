@@ -16,18 +16,26 @@ class Url {
     return date;
   }
 
-class dataBase {
+class DataBase {
   constructor() {
     this.urls = [];
   }
-  addUrl () {
-    this.url.push(new Url(url))
+  addUrl (originalUrl, shortUrl) {
+    this.urls.push( new Url(originalUrl, shortUrl) );
+  }
+  deleteUrl (originalUrl) {
+    for (let i = 0; i < this.urls.length; i++) {
+      if(this.urls[i].originalUrl === originalUrl) {
+        this.urls.splice(i, 1);
+
+      }
+
+    }
   }
 } 
 
 
-module.exports = dataBase;
+module.exports = DataBase;
 module.exports = Url;
 
 
-  module.exports = DatBase;
