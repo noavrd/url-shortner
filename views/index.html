@@ -4,11 +4,13 @@
   <head>
     <title>URL Shortener</title>
     <link rel="icon" type="image/png" href="../public/favicon.ico" />
-    <link href="./public/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="./public/style.css" type="text/css" />
   </head>
 
   <body>
-    <h1>URL Shortener Microservice</h1>
+    <div id = "headline">
+      <h1>URL Shortener Microservice</h1>
+    </div>
     <main>
       <section>
         <form action="api/shorturl/new" method="POST">
@@ -19,15 +21,26 @@
               id="url_input"
               type="text"
               name="url"
-              placeholder="https://www.freecodecamp.org/"
+              placeholder="Enter url"
+              required
             />
             <input type="submit" value="POST URL" />
           </fieldset>
         </form>
       </section>
+      <section id="statistics">
+        <table>
+          <tr>
+            <th>Original url</th>
+            <th>Date</th>
+            <th>Count</th>
+            <th>Short url</th>
+         </tr>
+        </table>
+      </section>
     </main>
     <footer>
-      <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p>
+      <!-- <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p> -->
     </footer>
   </body>
 </html>
