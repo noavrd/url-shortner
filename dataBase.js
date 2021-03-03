@@ -5,9 +5,7 @@ class Url {
       this.date = dateSql();
       this.count = 0;
       this.shortUrl = shortUrl;
-    
     }
-    
   }
   
   function dateSql() {
@@ -27,9 +25,7 @@ class DataBase {
     for (let i = 0; i < this.urls.length; i++) {
       if(this.urls[i].originalUrl === originalUrl) {
         this.urls.splice(i, 1);
-
       }
-
     }
   }
 } 
