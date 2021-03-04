@@ -14,10 +14,6 @@ router.post("/new", async (request, response) => {
     response.status(400).json({
       message: "Invalid URL. Please enter a valid url for shortening.",
     });
-  } else if (!validUrl.isHttpsUri(url)) {
-      response.status(400).json({
-        message: "Invalid hostname. Please enter a valid url for shortening.",
-      });
   } else {
     try {
       let shortUrl = await DataBase.addUrl(url);

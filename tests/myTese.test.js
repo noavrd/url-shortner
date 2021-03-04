@@ -5,12 +5,22 @@ const { items } = require("../dataBase");
 const app = require("../app");
 
 describe("POST route", ()=> {
-    const originalUrl = "https://www.youtube.com/?hl=iw&gl=IL";
     const items = [];
     it("should post a new short id successfully", async () => {
-        const response = await request(app).post("/api/shorturl/new").type("form").send({url : originalUrl});
+        const response = await request(app)
+        .post("/api/shorturl/new")
+        .type("form")
+        .send({url : "https://www.youtube.com/?hl=iw&gl=IL"});
         expect(response.status).toBe(200);
     });
+    it("should return an error for invalid url", async () => {
+        const response = await request(app)
+        .post("/api/shorturl/new")
+        .type("form")
+        .send({url : "945"});
+        expect(response.status).toBe(400);
+
+    })
 })
 
 describe("GET route", () => {
