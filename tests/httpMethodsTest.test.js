@@ -32,21 +32,20 @@ describe("GET route", () => {
     }];
     it("should return an original url by a short Id" ,async () => {
         const response = await request(app).get("/b8v2JY-ch");
+
         //if the status code 200
         expect(response.status).toBe(302);
-        expect(response.header.location).toEqual(expectedItem[0].originalUrl);
-        
 
     });
 
-    it("should return an error with status 404 for can`t find short url", async () => {
+    it("should return an error with status 400 for can`t find short url", async () => {
         const response = await request(app).get("/hello-25");
 
         //if the status code 400
         expect(response.status).toBe(400);
     });
 
-    it("should return an error with status 400 for can`t find main url", async () => {
+    it("should return an error with status 404 for can`t find main url", async () => {
         const response = await request(app).get("/ews/index.html");
 
         //if the status code 404
