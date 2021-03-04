@@ -3,6 +3,7 @@ const fs = require("fs");
 const { TestScheduler } = require("jest");
 const { items } = require("../dataBase");
 const app = require("../app");
+const DataBase = require("../dataBase");
 
 describe("POST route", ()=> {
     const items = [];
@@ -20,6 +21,17 @@ describe("POST route", ()=> {
         .send({url : "945"});
         expect(response.status).toBe(400);
 
+    })
+    it("should add to count", async () => {
+        let shortUrl = await DataBase.addUrl("https://www.youtube.com/?hl=iw&gl=IL");
+        console.log(shortUrl);
+        let db = DataBase();
+        console.log(db);
+        const response = await request(app)
+        .post("/api/shorturl/new")
+        .type("form")
+        .send({url : "https://www.youtube.com/?hl=iw&gl=IL"});
+        expect(shortUrl[0].count).toEqual(1);
     })
 })
 

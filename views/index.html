@@ -9,14 +9,13 @@
 
   <body>
     <div id = "headline">
-      <h1>URL Shortener Microservice</h1>
+      <h1>Short it!</h1>
+      <h3>A url shortener service</h3>
     </div>
     <main>
       <section>
         <form action="api/shorturl/new" method="POST">
           <fieldset>
-            <legend>URL Shortener</legend>
-            <label for="url_input">URL:</label>
             <input
               id="url_input"
               type="text"
@@ -24,11 +23,11 @@
               placeholder="Enter url"
               required
             />
-            <input type="submit" value="POST URL" />
+            <input type="submit" value="CREATE" />
           </fieldset>
         </form>
       </section>
-      <section id="statistics">
+      <!-- <section id="statistics">
         <table>
           <tr>
             <th>Original url</th>
@@ -37,7 +36,7 @@
             <th>Short url</th>
          </tr>
         </table>
-      </section>
+      </section> -->
     </main>
     <footer>
       <!-- <p>By <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p> -->
