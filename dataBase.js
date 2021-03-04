@@ -55,9 +55,16 @@ class DataBase {
 
     for (let item of this.items) {
       if (item.shortUrl == shortUrl) {
+        console.log(item.count);
         item.count += 1;
+        console.log(item.count);
+
         console.log("FIND ORIGINAL URL METHOD");
         console.log(item.originalUrl);
+        fs.writeFile(
+          "./dataBase/dataBase.json",
+          JSON.stringify(this.items, null, 4)
+        );
         return item.originalUrl;
       }
     }

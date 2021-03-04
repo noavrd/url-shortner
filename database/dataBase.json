@@ -1,0 +1,26 @@
+[
+    {
+        "originalUrl": "https://www.google.com/",
+        "date": "2021-03-03 14:44:40",
+        "count": 2,
+        "shortUrl": "1"
+    },
+    {
+        "originalUrl": "https://www.google.co.il/",
+        "shortUrl": "b8v2JY-ch",
+        "count": 0,
+        "date": "2021-03-04 09:29:35"
+    },
+    {
+        "originalUrl": "https://www.goog.co.il/",
+        "shortUrl": "2bEsFAkyg",
+        "count": 0,
+        "date": "2021-03-04 09:29:49"
+    },
+    {
+        "originalUrl": "https://www.freecodecamp.org/",
+        "shortUrl": "xFav_ZYbG",
+        "count": 1,
+        "date": "2021-03-04 09:39:55"
+    }
+]
