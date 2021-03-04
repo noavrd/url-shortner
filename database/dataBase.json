@@ -8,7 +8,7 @@
     {
         "originalUrl": "https://www.google.co.il/",
         "shortUrl": "b8v2JY-ch",
-        "count": 0,
+        "count": 20,
         "date": "2021-03-04 09:29:35"
     },
     {
@@ -24,15 +24,9 @@
         "date": "2021-03-04 09:39:55"
     },
     {
-        "originalUrl": "https://www.youtube.com/watch?v=7r4xVDI2vho",
-        "shortUrl": "kJ3GSrUP8",
-        "count": 3,
-        "date": "2021-03-04 11:30:38"
-    },
-    {
         "originalUrl": "https://github.com/suvelocity/cyber4s-final1-boilerplate-url-shortener",
         "shortUrl": "FbTi3vbFh",
-        "count": 2,
+        "count": 3,
         "date": "2021-03-04 11:33:26"
     },
     {
@@ -40,5 +34,11 @@
         "shortUrl": "UrRBdoNki",
         "count": 1,
         "date": "2021-03-04 12:29:10"
+    },
+    {
+        "originalUrl": "https://www.youtube.com/?hl=iw&gl=IL",
+        "shortUrl": "SWMU7WVPo",
+        "count": 0,
+        "date": "2021-03-04 14:12:19"
     }
 ]

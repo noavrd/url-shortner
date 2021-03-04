@@ -25,8 +25,9 @@ app.get("/:id", async (request, response) => {
     let originalUrl = await DataBase.findOriginalUrl(id);
     if(!originalUrl) {
       response.status(404).send("short ID not exists");
+    return;
     }
-    response.redirect(`${originalUrl}`);
+    response.status(302).redirect(`${originalUrl}`);
 });  
 
 module.exports = app;
