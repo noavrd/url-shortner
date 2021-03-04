@@ -54,7 +54,7 @@ class DataBase {
     await this.readAllData();
 
     for (let item of this.items) {
-      if (item.shortUrl == shortUrl) {
+      if (item.shortUrl === shortUrl) {
         console.log(item.count);
         item.count += 1;
         console.log(item.count);
