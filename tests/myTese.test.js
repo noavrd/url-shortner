@@ -32,9 +32,10 @@ describe("GET route", () => {
     }];
     it("should return an original url by a short Id" ,async () => {
         const response = await request(app).get("/b8v2JY-ch");
-
         //if the status code 200
         expect(response.status).toBe(302);
+        expect(response.header.location).toEqual(expectedItem[0].originalUrl);
+        
 
     });
 
