@@ -1,4 +1,5 @@
 const express = require("express");
+const shortid = require("shortid");
 const validUrl = require("valid-url");
 const DataBase = require("../dataBase.js");
 
@@ -11,17 +12,16 @@ router.post("/new", async (request, response) => {
 
 
   if (!validUrl.isUri(url)) {
-    response.status(400).json({
-      message: "Invalid URL. Please enter a valid url for shortening.",
-    });
+    response.status(400).send("Invalid URL. Please enter a valid url for shortening.",
+    );
   } else {
     try {
       let shortUrl = await DataBase.addUrl(url);
-      response.status(200).json({ message: shortUrl });
+      response.status(200).send( `Your new URL: localhost:3000/${shortUrl}` );
     } catch (e) {
       response
         .status(500)
-        .json({ message: "Internal Server Error!", error: `${e}` });
+        .send("Internal Server Error!" `${e}`);
     }
   }
 });
