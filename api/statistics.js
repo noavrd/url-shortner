@@ -1,11 +1,18 @@
-//const express = require("express");
-// const app = require("../app");
-// let database = require("../dataBase");
+const express = require("express");
+const DataBase = require("../dataBase.js");
 
-// database = database.DataBase;
+const router = express.Router();
+router.use(express.json());
+router.use(express.urlencoded());
 
-// let table = document.querySelector("table");
+//let table = document.querySelector("table");
 
-// function generateTable(table, data) {
-//     for( )
-// }
+router.get("/", (req, res) => {
+    try {
+      res.sendFile(__dirname + "/views/statistics.html");
+    } catch {
+      res.status(404).send("page not found");
+    }
+  });
+
+  module.exports = { router };
