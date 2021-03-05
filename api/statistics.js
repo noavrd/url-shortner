@@ -1,18 +1,21 @@
 const express = require("express");
 const DataBase = require("../dataBase.js");
 
-const router = express.Router();
-router.use(express.json());
-router.use(express.urlencoded());
+const statistics = express.Router();
+statistics.use(express.json());
+statistics.use(express.urlencoded());
 
 //let table = document.querySelector("table");
 
-router.get("/", (req, res) => {
-    try {
-      res.sendFile(__dirname + "/views/statistics.html");
-    } catch {
-      res.status(404).send("page not found");
-    }
+statistics.get("/", (request, response) => {
+  try {
+    const urls = DataBase.items;
+      response.status(200).json(urls);
+  }
+  catch(e) {
+    response.status(500).json({ message: "Internal Server Error!", error: `${e}` });
+
+  }
   });
 
-  module.exports = { router };
+  module.exports = { statistics };

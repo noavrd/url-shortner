@@ -17,12 +17,13 @@
     <main>
       <h1 id="first">THE SHORTER</h1>
       <section>
+
+
         <form action="api/shorturl/new" method="POST">
           <fieldset>
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
-
+            <span id="red">.</span>
+            <span id="yellow">.</span>
+            <span id="green">.</span>
             <input
               id="url_input"
               type="text"
@@ -31,12 +32,14 @@
               required
             />
             <input type="submit" value="CREATE" />
-            <button action="api/statistics/" method="GET">statistics</button> 
 
           </fieldset>
         </form>
+
       </section>
       <h1 id="second">THE BETTER</h1>
+      <input type="submit" action="api/statistics" method="GET" value="statistics"/> 
+
 
     </main>
     <footer>
