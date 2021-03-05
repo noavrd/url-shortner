@@ -4,9 +4,10 @@ const { TestScheduler } = require("jest");
 const { items } = require("../dataBase");
 const app = require("../app");
 const DataBase = require("../dataBase");
+const { count } = require("console");
 
 describe("POST route", ()=> {
-    const items = [];
+
     it("should post a new short id successfully", async () => {
         const response = await request(app)
         .post("/api/shorturl/new")
@@ -22,16 +23,18 @@ describe("POST route", ()=> {
         expect(response.status).toBe(400);
 
     })
-    it("should add to count", async () => {
-        let shortUrl = await DataBase.addUrl("https://www.youtube.com/?hl=iw&gl=IL");
-        console.log(shortUrl);
-        let db = DataBase();
-        console.log(db);
+    it("should return the same short url", async () => {
+        const expectedItem = [ {
+            originalUrl: "https://www.youtube.com/?hl=iw&gl=IL",
+            shortUrl: "SWMU7WVPo",
+            count: 0,
+            date: "2021-03-04 09:29:35"
+        }];
         const response = await request(app)
         .post("/api/shorturl/new")
         .type("form")
         .send({url : "https://www.youtube.com/?hl=iw&gl=IL"});
-        expect(shortUrl[0].count).toEqual(1);
+        expect(response.text).toEqual(`{\"message\":\"${expectedItem[0].shortUrl}\"}`);
     })
 })
 
@@ -47,6 +50,7 @@ describe("GET route", () => {
 
         //if the status code 200
         expect(response.status).toBe(302);
+        expect(response.header.location).toBe(expectedItem[0].originalUrl);
 
     });
 

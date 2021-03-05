@@ -42,13 +42,6 @@ class DataBase {
 
     return newItem.shortUrl;
   }
-  static deleteUrl(originalUrl) {
-    for (let i = 0; i < this.urls.length; i++) {
-      if (this.urls[i].originalUrl === originalUrl) {
-        this.urls.splice(i, 1);
-      }
-    }
-  }
 
   static async findOriginalUrl(shortUrl) {
     await this.readAllData();
