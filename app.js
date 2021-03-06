@@ -2,7 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const api = require("./api");
-//const shortUrl = require("dataBase.js");
+
+const path = require("path");
+const pug = require("pug");
+
 const DataBase = require("./dataBase");
 app.use(express.json());
 app.use(express.urlencoded());
@@ -30,4 +33,8 @@ app.get("/:id", async (request, response) => {
     response.status(302).redirect(`${originalUrl}`);
 });  
 
+app.set("views", path
+.join(__dirname), "views");
+
+app.set("view engine", "pug");
 module.exports = app;

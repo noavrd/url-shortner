@@ -21,13 +21,13 @@ class DataBase {
         if (err) return;
       }
     );
-    this.items = JSON.parse(data);
+    return this.items = JSON.parse(data);
   }
 
   static async addUrl(url) {
-    await this.readAllData();
+   const addData = await this.readAllData();
 
-    for (let item of this.items) {
+    for (let item of addData) {
       if (item.originalUrl === url) {
         return item.shortUrl;
       }
@@ -44,14 +44,14 @@ class DataBase {
   }
 
   static async findOriginalUrl(shortUrl) {
-    await this.readAllData();
+    const addData = await this.readAllData();
 
-    for (let item of this.items) {
+    for (let item of addData) {
       if (item.shortUrl === shortUrl) {
         item.count += 1;
         fs.writeFile(
           "./dataBase/dataBase.json",
-          JSON.stringify(this.items, null, 4)
+          JSON.stringify(addData, null, 4)
         );
         return item.originalUrl;
       }

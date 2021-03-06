@@ -5,17 +5,14 @@ const statistics = express.Router();
 statistics.use(express.json());
 statistics.use(express.urlencoded());
 
-//let table = document.querySelector("table");
-
-statistics.get("/", (request, response) => {
+statistics.get("/", async (request, response) => {
   try {
-    const urls = DataBase.items;
-      response.status(200).json(urls);
+    const url = await DataBase.readAllData();
+    response.render('statistics', {urls : url});
   }
   catch(e) {
     response.status(500).json({ message: "Internal Server Error!", error: `${e}` });
-
   }
-  });
+});
 
-  module.exports = { statistics };
+module.exports = { statistics };
