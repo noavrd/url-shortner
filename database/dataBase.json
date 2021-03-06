@@ -8,7 +8,7 @@
     {
         "originalUrl": "https://www.google.co.il/",
         "shortUrl": "b8v2JY-ch",
-        "count": 97,
+        "count": 99,
         "date": "2021-03-04 09:29:35"
     },
     {
@@ -70,5 +70,11 @@
         "shortUrl": "vvYUNplOs",
         "count": 0,
         "date": "2021-03-05 21:28:41"
+    },
+    {
+        "originalUrl": "https://www.google.co.il/imghp?hl=iw&ogbl",
+        "shortUrl": "ClVvO0FxZ",
+        "count": 4,
+        "date": "2021-03-06 16:17:55"
     }
 ]

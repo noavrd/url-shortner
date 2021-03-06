@@ -34,7 +34,7 @@ describe("POST route", ()=> {
         .post("/api/shorturl/new")
         .type("form")
         .send({url : "https://www.youtube.com/?hl=iw&gl=IL"});
-        expect(response.text).toEqual(`{\"message\":\"${expectedItem[0].shortUrl}\"}`);
+        expect(response.text).toEqual(`Your new URL: localhost:3000/${expectedItem[0].shortUrl}`);
     })
 })
 
