@@ -15,7 +15,7 @@ class DataBase {
 
   static async readAllData() {
     const data = await fs.readFile(
-      "./dataBase/dataBase.json",
+      process.cwd()+"/database/dataBase.json",
       "utf8",
       (err) => {
         if (err) return;
