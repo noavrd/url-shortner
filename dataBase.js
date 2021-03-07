@@ -36,7 +36,7 @@ class DataBase {
     let newItem = new Item(url);
     this.items.push(newItem);
     fs.writeFile(
-      "./dataBase/dataBase.json",
+      process.cwd()+"/database/dataBase.json",
       JSON.stringify(this.items, null, 4)
     );
 
@@ -50,7 +50,7 @@ class DataBase {
       if (item.shortUrl === shortUrl) {
         item.count += 1;
         fs.writeFile(
-          "./dataBase/dataBase.json",
+          process.cwd()+"/database/dataBase.json",
           JSON.stringify(addData, null, 4)
         );
         return item.originalUrl;
