@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  head
+        title URL statistics 
+        style 
+         include public/style.css
+
+  body
+    h1#head Urls Statistics
+      table
+          tr
+            th Original Url
+            th Short Url
+            th Count 
+            th Date 
+      
+          each url in urls 
+            tr
+              td= url.originalUrl
+              td= url.shortUrl
+              td= url.count
+              td= url.date
